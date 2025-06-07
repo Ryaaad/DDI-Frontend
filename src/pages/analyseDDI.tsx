@@ -1,6 +1,11 @@
 import { useState } from "react";
 import ResultsTable from "../components/ResultsTable";
 import { DDIS_PAIRS } from "../data/ddi_pairs";
+import { Search } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { extractSentenceDDIsHandler } from "../backend/extract_ddis";
+import type { AxiosError } from "axios";
 
 interface Result {
   drugPair: string;
@@ -10,11 +15,25 @@ interface Result {
 
 const AnalyzeDDi = () => {
   const [inputText, setInputText] = useState<string>();
-  const [results, setResults] = useState<Result[]>(DDIS_PAIRS);
+  const [results, _setResults] = useState<Result[]>(DDIS_PAIRS);
+
+  //  const queryClient = useQueryClient();
+  const extract_sentence_ddis = useMutation({
+    mutationFn: async (data: string) => await extractSentenceDDIsHandler(data),
+    onSuccess: (data: string) => {
+      toast.success("ddi extracted succesfully");
+      console.log("data res :", data);
+      // setResults(data)
+    },
+    onError: (error: AxiosError) => {
+      toast.error(`Failed : ${error.message}`);
+    },
+  });
 
   const handleAnalyze = () => {
-    // Placeholder for API call or analysis logic
-    console.log("Analyzing:", inputText);
+    if (inputText) {
+      extract_sentence_ddis.mutate(inputText);
+    }
   };
 
   return (
@@ -47,6 +66,16 @@ const AnalyzeDDi = () => {
               Upload .txt file
             </button>
             <span className="text-gray-500">No file selected</span>
+          </div>
+          <div className="w-full flex justify-end ">
+            <button
+              className=" flex items-center gap-2 justify-center px-6 py-2 cursor-pointer font-semibold bg-[#1e40af] text-white rounded-md duration-300 hover:bg-[#1e40afd0] "
+              onClick={handleAnalyze}
+              disabled={!inputText}
+            >
+              <Search size={15} />
+              Submit
+            </button>
           </div>
         </div>
         <ResultsTable results={results} />
