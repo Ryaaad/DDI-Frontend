@@ -6,7 +6,7 @@ const RootLayout: FC = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
-      <div className="w-full flex-1 max-h-screen overflow-y-scroll">
+      <div className="w-full flex-1 max-h-screen overflow-y-scroll py-8 px-10">
         <Outlet />
       </div>
     </div>
