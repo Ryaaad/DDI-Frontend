@@ -65,7 +65,7 @@ const DatasetsPage = () => {
         Explore the dataset used for training our DDI extraction model.
       </p>
       <Section>
-        <h3 className="text-xl font-semibold text-gray-700 mb-2">
+        <h3 className="text-xl font-semibold text-gray-700 mb-4">
           Dataset Overview
         </h3>
         <section className="flex items-stretch justify-center gap-6">
