@@ -4,7 +4,7 @@ import { FaChartLine, FaMicroscope } from "react-icons/fa";
 import { FaCircleInfo } from "react-icons/fa6";
 
 const Sidebar = () => {
-  let location = useLocation();
+  const location = useLocation();
   const navElements = [
     {
       path: WEB_ROUTES.datasets,

@@ -6,6 +6,7 @@ export async function extractSentenceDDIsHandler(sentence: string) {
     const response = await axiosAuthClient.post(`/extract-ddis`, {
       text: sentence,
     });
+    console.log("response :"+ response.data)
     return response.data;
   } catch (error: unknown) {
     const result = handleAxiosError(error);

@@ -1,32 +1,35 @@
 import { useState } from "react";
 import ResultsTable from "../components/ResultsTable";
-import { DDIS_PAIRS } from "../data/ddi_pairs";
 import { Search } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { extractSentenceDDIsHandler } from "../backend/extract_ddis";
 import type { AxiosError } from "axios";
+import type { DDI_Extraction_result_I } from "../types/ddi_extraction_result";
 
-interface Result {
-  drugPair: string;
-  interactionType: string;
-  confidenceScore: number;
-}
 
 const AnalyzeDDi = () => {
   const [inputText, setInputText] = useState<string>();
-  const [results, _setResults] = useState<Result[]>(DDIS_PAIRS);
+  const [results, setResults] = useState<DDI_Extraction_result_I[]>([]);
 
+  const [isLoading,setIsLoading] = useState(false)
   //  const queryClient = useQueryClient();
   const extract_sentence_ddis = useMutation({
-    mutationFn: async (data: string) => await extractSentenceDDIsHandler(data),
-    onSuccess: (data: string) => {
+    mutationFn: async (data: string) =>{
+      setIsLoading(true); 
+      
+      const result =await extractSentenceDDIsHandler(data)
+    return result
+    },
+    onSuccess: (data: DDI_Extraction_result_I[] | null) => {
       toast.success("ddi extracted succesfully");
       console.log("data res :", data);
-      // setResults(data)
+      setResults(data || [])
+       setIsLoading(false); 
     },
     onError: (error: AxiosError) => {
       toast.error(`Failed : ${error.message}`);
+      setIsLoading(false); 
     },
   });
 
@@ -77,7 +80,7 @@ const AnalyzeDDi = () => {
           </button>
         </div>
       </div>
-      <ResultsTable results={results} />
+      <ResultsTable results={results} isLoading={isLoading} />
     </main>
   );
 };

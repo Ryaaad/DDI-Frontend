@@ -1,7 +1,7 @@
-("use client");
+"use client";
 import { useState, type FC } from "react";
 import { DDIS_TYPE_EXAMPLE } from "../../../data/ddi_examples";
-import type { DDI2013TYPES } from "../../../type/ddi";
+import type { DDI2013TYPES } from "../../../types/ddi";
 import { DDI_TYPE_NAMES } from "../../../data/ddi_historgram";
 
 interface DrugPairSentenceProps {
