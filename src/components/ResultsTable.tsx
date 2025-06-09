@@ -37,7 +37,7 @@ const ResultsTable: React.FC<ResultsTableProps> = ({ results, isLoading }) => {
             </thead>
             <tbody>
               {results.map((result, index) => (
-                <tr key={index} className="border-t hover:bg-gray-50">
+                <tr key={index} className={`border-t hover:bg-gray-50 ${result.label==="none" && "hidden"} `}>
                   <td className="px-4 py-2">
                     <div className="flex items-center space-x-2">
                       <span className="w-2.5 h-2.5 bg-blue-300 rounded-full"></span>
