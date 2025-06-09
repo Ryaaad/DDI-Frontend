@@ -1,35 +1,164 @@
 import { useState } from "react";
-import ResultsTable from "../components/ResultsTable";
-import { Search } from "lucide-react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { extractSentenceDDIsHandler } from "../backend/extract_ddis";
 import type { AxiosError } from "axios";
 import type { DDI_Extraction_result_I } from "../types/ddi_extraction_result";
-
+import { FaFlaskVial } from "react-icons/fa6";
+import ResultsTable from "../components/Pages/Analyse_DDI/ResultsTable"
 
 const AnalyzeDDi = () => {
   const [inputText, setInputText] = useState<string>();
-  const [results, setResults] = useState<DDI_Extraction_result_I[]>([]);
+  const [results, setResults] = useState<DDI_Extraction_result_I[]>([
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "int",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "advise",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "mechanism",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "effect",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "int",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "advise",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "advise",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+    // {
+    //   drug1: "beta blockers",
+    //   drug2: "benzodiazepenes",
+    //   label: "none",
+    // },
+  ]);
 
-  const [isLoading,setIsLoading] = useState(false)
-  //  const queryClient = useQueryClient();
+  const [isLoading, setIsLoading] = useState(false);
   const extract_sentence_ddis = useMutation({
-    mutationFn: async (data: string) =>{
-      setIsLoading(true); 
-      
-      const result =await extractSentenceDDIsHandler(data)
-    return result
+    mutationFn: async (data: string) => {
+      setIsLoading(true);
+
+      const result = await extractSentenceDDIsHandler(data);
+      return result;
     },
     onSuccess: (data: DDI_Extraction_result_I[] | null) => {
       toast.success("ddi extracted succesfully");
       console.log("data res :", data);
-      setResults(data || [])
-       setIsLoading(false); 
+      setResults(data || []);
+      setIsLoading(false);
     },
     onError: (error: AxiosError) => {
       toast.error(`Failed : ${error.message}`);
-      setIsLoading(false); 
+      setIsLoading(false);
     },
   });
 
@@ -71,12 +200,12 @@ const AnalyzeDDi = () => {
         </div>
         <div className="w-full flex justify-end ">
           <button
-            className=" flex items-center gap-2 justify-center px-6 py-2 cursor-pointer font-semibold bg-[#1e40af] text-white rounded-md duration-300 hover:bg-[#1e40afd0] "
+            className=" flex items-center gap-2 justify-center px-6 py-2 cursor-pointer  bg-[#1e40af] text-white rounded-md duration-300 hover:bg-[#1e40afd0] "
             onClick={handleAnalyze}
             disabled={!inputText}
           >
-            <Search size={15} />
-            Submit
+            <FaFlaskVial />
+            Analyse
           </button>
         </div>
       </div>
