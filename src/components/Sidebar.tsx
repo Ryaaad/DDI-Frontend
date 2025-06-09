@@ -7,6 +7,15 @@ const Sidebar = () => {
   const location = useLocation();
   const navElements = [
     {
+      path: WEB_ROUTES.about,
+      childs: (
+        <>
+          <FaCircleInfo />
+          <span>Model Info</span>
+        </>
+      ),
+    },
+    {
       path: WEB_ROUTES.datasets,
       childs: (
         <>
@@ -21,15 +30,6 @@ const Sidebar = () => {
         <>
           <FaMicroscope />
           <span>Analyze DDI</span>
-        </>
-      ),
-    },
-    {
-      path: WEB_ROUTES.about,
-      childs: (
-        <>
-          <FaCircleInfo />
-          <span>About Model</span>
         </>
       ),
     },
@@ -52,48 +52,7 @@ const Sidebar = () => {
             {element.childs}
           </NavLink>
         ))}
-
-        {/* <NavLink
-          to={WEB_ROUTES.extract}
-          className="flex items-center space-x-2 p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-        >
-          <FaMicroscope />
-          <span>Analyze DDI</span>
-        </NavLink>
-
-        <NavLink
-          to={WEB_ROUTES.about}
-          className="flex items-center space-x-2 p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-        >
-          <FaCircleInfo />
-
-          <span>About Model</span>
-        </NavLink> */}
       </nav>
-      {/* <h2 className="text-lg font-semibold text-gray-800 mt-6 mb-2">INFO</h2>
-      <nav className="space-y-2">
-        <a
-          href="#"
-          className="flex items-center space-x-2 p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-        >
-          <span>ℹ️</span>
-          <span>About</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center space-x-2 p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-        >
-          <span>📜</span>
-          <span>Documentation</span>
-        </a>
-        <a
-          href="#"
-          className="flex items-center space-x-2 p-2 text-gray-600 hover:bg-gray-100 rounded-md"
-        >
-          <span>💻</span>
-          <span>API</span>
-        </a>
-      </nav> */}
     </div>
   );
 };

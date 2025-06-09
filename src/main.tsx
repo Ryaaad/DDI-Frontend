@@ -7,6 +7,7 @@ import RootLayout from "./components/Rootlayout.tsx";
 import AnalyzeDDi from "./pages/analyseDDI.tsx";
 import DatasetsPage from "./pages/datasets.tsx";
 import { WEB_ROUTES } from "./consts/routes.ts";
+import DDIInfoPage from "./pages/about.tsx";
 
 const queryClient = new QueryClient();
 createRoot(document.getElementById("root")!).render(
@@ -17,7 +18,7 @@ createRoot(document.getElementById("root")!).render(
           <Route element={<RootLayout />}>
             <Route path={WEB_ROUTES.extract} element={<AnalyzeDDi />} />
             <Route path={WEB_ROUTES.datasets} element={<DatasetsPage />} />
-            <Route path={WEB_ROUTES.about} element={<DatasetsPage />} />
+            <Route path={WEB_ROUTES.about} element={<DDIInfoPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
