@@ -13,3 +13,18 @@ export async function extractSentenceDDIsHandler(sentence: string) {
     throw result;
   }
 }
+
+export async function extractSentenceDrugsHandler(sentence: string) {
+  try {
+    const response = await axiosAuthClient.post(`/extract-drugs`, {
+      text: sentence,
+    });
+    console.log("response :"+ response.data)
+    return response.data;
+  } catch (error: unknown) {
+    const result = handleAxiosError(error);
+    throw result;
+  }
+}
+
+

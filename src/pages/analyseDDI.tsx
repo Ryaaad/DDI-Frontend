@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
-import { extractSentenceDDIsHandler } from "../backend/extract_ddis";
+import { extractSentenceDDIsHandler, extractSentenceDrugsHandler } from "../backend/extractions";
 import type { AxiosError } from "axios";
 import type { DDI_Extraction_result_I } from "../types/ddi_extraction_result";
 import { FaFlaskVial } from "react-icons/fa6";
@@ -142,6 +142,10 @@ const AnalyzeDDi = () => {
     // },
   ]);
 
+  const [extractedDrugs, setExtractedDrugs] = useState<string[]>([
+
+  ]);
+
   const [isLoading, setIsLoading] = useState(false);
   const extract_sentence_ddis = useMutation({
     mutationFn: async (data: string) => {
@@ -161,10 +165,30 @@ const AnalyzeDDi = () => {
       setIsLoading(false);
     },
   });
+  const extract_sentence_drugs = useMutation({
+    mutationFn: async (data: string) => {
+      setIsLoading(true);
+
+      const result = await extractSentenceDrugsHandler(data);
+      return result;
+    },
+    onSuccess: (data: string[] | null) => {
+      toast.success("ddi extracted succesfully");
+      console.log("data res :", data);
+      setExtractedDrugs(data || []);
+      setIsLoading(false);
+    },
+    onError: (error: AxiosError) => {
+      toast.error(`Failed : ${error.message}`);
+      setIsLoading(false);
+    },
+  });
+
 
   const handleAnalyze = () => {
     if (inputText) {
       extract_sentence_ddis.mutate(inputText);
+      extract_sentence_drugs.mutate(inputText)
     }
   };
 
@@ -209,7 +233,7 @@ const AnalyzeDDi = () => {
           </button>
         </div>
       </div>
-      <ResultsTable results={results} isLoading={isLoading} />
+      <ResultsTable ddi_interactions={results} isLoading={isLoading} extractedDrugs={extractedDrugs}  />
     </main>
   );
 };
