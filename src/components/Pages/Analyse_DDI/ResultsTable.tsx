@@ -27,7 +27,7 @@ const ResultsTable: FC<ResultsTableProps> = ({ ddi_interactions, isLoading,extra
 
       <div className="flex space-x-3 mb-4">
         <button
-          className={`px-4 py-2 rounded-md text-sm font-medium border ${
+          className={`px-4 cursor-pointer py-2 rounded-md text-sm font-medium border ${
             selectedView === "interactions"
               ? "bg-blue-100 text-blue-700 border-blue-300"
               : "bg-white text-gray-600 border-gray-300"
@@ -37,7 +37,7 @@ const ResultsTable: FC<ResultsTableProps> = ({ ddi_interactions, isLoading,extra
           Drug Pair Interactions
         </button>
         <button
-          className={`px-4 py-2 rounded-md text-sm font-medium border ${
+          className={`px-4 py-2 rounded-md text-sm font-medium border cursor-pointer ${
             selectedView === "drugs"
               ? "bg-blue-100 text-blue-700 border-blue-300"
               : "bg-white text-gray-600 border-gray-300"
