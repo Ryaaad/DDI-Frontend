@@ -8,8 +8,26 @@ import AnalyzeDDi from "./pages/analyseDDI.tsx";
 import DatasetsPage from "./pages/datasets.tsx";
 import { WEB_ROUTES } from "./consts/routes.ts";
 import DDIInfoPage from "./pages/about.tsx";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
 const queryClient = new QueryClient();
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>

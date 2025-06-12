@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  /* --color-mint-500: oklch(0.72 0.11 178) */
+  --color-custom-purple: #4B5EAA
+}

@@ -22,6 +22,29 @@ const sizes = [
     nbr: 189,
   },
 ];
+
+const DDI_TYPES_PERFORMANCE = [
+  {
+    name: "None",
+    nbr: 0.95,
+  },
+  {
+    name: "Mechanism",
+    nbr: 0.7,
+  },
+  {
+    name: "Effect",
+    nbr: 0.8,
+  },
+  {
+    name: "Advice",
+    nbr: 0.8,
+  },
+  {
+    name: "Int",
+    nbr: 0.64,
+  },
+];
 const ddiColors = [
   "rgba(209, 213, 219, 0.5)", // None
   "oklch(54.6% 0.245 262.881)", // Mechanism
@@ -51,6 +74,17 @@ export const DDI_HISTO_DATA = {
             return "rgba(0, 0, 0, 0.5)"; // Black fallback
         }
       }),
+    },
+  ],
+};
+
+export const DDI_PERFORMANCES_HIST = {
+  labels: DDI_TYPE_NAMES,
+  datasets: [
+    {
+      label: "Dataset 1",
+      data: DDI_TYPE_NAMES.map((_, index) => DDI_TYPES_PERFORMANCE[index].nbr),
+      backgroundColor: "#4B5EAA",
     },
   ],
 };

@@ -5,15 +5,6 @@ import DDITypeCard from "../components/Pages/Datasets/intecationType";
 import { Bar } from "react-chartjs-2";
 import { FaCheckCircle, FaDatabase, FaPills } from "react-icons/fa";
 
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import { DDI_HISTO_DATA } from "../data/ddi_historgram";
 import Section from "../components/shared/section";
 import { LuGitCompareArrows } from "react-icons/lu";
@@ -21,16 +12,7 @@ import DocumentDisplay from "../components/Pages/Datasets/DocumentDisplay";
 import { DDITypeExamples } from "../components/Pages/Datasets/DDItypesExamples";
 import { PiLinkBold } from "react-icons/pi";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
-);
-
-export const options = {
+const options = {
   responsive: true,
   maintainAspectRatio: false,
   plugins: {
