@@ -26,23 +26,23 @@ const sizes = [
 const DDI_TYPES_PERFORMANCE = [
   {
     name: "None",
-    nbr: 0.95,
+    nbr: 0.959,
   },
   {
     name: "Mechanism",
-    nbr: 0.7,
+    nbr: 0.846,
   },
   {
     name: "Effect",
-    nbr: 0.8,
+    nbr: 0.787,
   },
   {
     name: "Advice",
-    nbr: 0.8,
+    nbr: 0.854,
   },
   {
     name: "Int",
-    nbr: 0.64,
+    nbr: 0.627,
   },
 ];
 const ddiColors = [

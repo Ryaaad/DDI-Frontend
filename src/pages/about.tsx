@@ -9,6 +9,8 @@ import { GiMedicines } from "react-icons/gi";
 import { LuGitCompareArrows } from "react-icons/lu";
 import { Bar } from "react-chartjs-2";
 import { DDI_PERFORMANCES_HIST } from "../data/ddi_historgram";
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+
 
 const DDIInfoPage = () => {
   const options = {
@@ -41,6 +43,7 @@ const DDIInfoPage = () => {
       description: "Interaction type",
     },
   ];
+  const dner_percentage=0.914
   return (
     <main>
       <h2 className="text-2xl font-semibold text-gray-800 ">About the Model</h2>
@@ -54,7 +57,7 @@ const DDIInfoPage = () => {
             <FaPills size={40} color="#ffffff" />
             <FaExclamationTriangle size={40} color="#ffffff" />
           </div>
-          <h2 className="text-white text-center w-full text-xl">
+          <h2 className="text-white text-center w-full text-xl  ">
             DDis can lead to serious health risks if not properly identified and
             managed
           </h2>
@@ -125,7 +128,7 @@ const DDIInfoPage = () => {
       </div>
 
       <div className="flex w-full items-center gap-4  my-2 mb-8 ">
-        <div className="bg-white p-6 py-8 rounded-xl h-[650px] w-full shadow-md">
+        <div className="bg-white p-6 py-8 rounded-xl h-[580px] w-full shadow-md">
           <div className="flex gap-4 items-center">
             <div className="w-10 h-10 rounded-lg flex justify-center items-center bg-custom-purple">
               <GiMedicines className="text-white" size={25} />
@@ -134,9 +137,30 @@ const DDIInfoPage = () => {
               <h1 className="font-semibold text-xl">Drug NER Model</h1>
               <p className="">Drug Named Entity Recognition </p>
             </div>
+
+          </div>
+
+                      <div style={{ width: 180, height: 180 }} className="mx-auto my-15 " >
+  <CircularProgressbarWithChildren  value={dner_percentage*100} >
+<div className="font-bold text-4xl text-custom-purple " >  {dner_percentage}  </div>
+<div className="text-sm" >  F1 score </div>
+</CircularProgressbarWithChildren>
+</div>
+
+  <div className="flex items-center justify-center w-full ">
+          <div className="flex space-x-4 w-full">
+            <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
+              <div className="text-2xl font-bold">88.32%</div>
+              <div className="text-gray-600">Precision</div>
+            </div>
+            <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
+              <div className="text-2xl font-bold">94.98%</div>
+              <div className="text-gray-600">Recall</div>
+            </div>
           </div>
         </div>
-        <div className="bg-white p-6 py-8 rounded-xl h-[650px] w-full shadow-md">
+        </div>
+        <div className="bg-white p-6 py-8 rounded-xl h-[580px] w-full shadow-md">
           <div className="flex gap-4 items-center">
             <div className="w-10 h-10 rounded-lg flex justify-center items-center bg-custom-purple">
               <LuGitCompareArrows className="text-white" size={25} />
@@ -149,7 +173,7 @@ const DDIInfoPage = () => {
             </div>
           </div>
           <div className="w-full bg-blue-50 text-center rounded-lg p-4 px-5 my-8 ">
-            <h1 className="text-custom-purple text-4xl font-bold ">0.81</h1>
+            <h1 className="text-custom-purple text-4xl font-bold ">0.814</h1>
             <p className="">Global F1 Score</p>
           </div>
           <div className=" w-full my-8">

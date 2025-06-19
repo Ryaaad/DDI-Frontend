@@ -213,7 +213,7 @@ const AnalyzeDDi = () => {
           placeholder="e.g., Aspirin may interact with Warfarin causing increased risk of bleeding."
           onChange={(e) => setInputText(e.target.value)}
         />
-        <label className="block text-gray-600 mb-2">
+        {/* <label className="block text-gray-600 mb-2">
           Or upload a text file:
         </label>
         <div className="flex items-center space-x-2">
@@ -221,7 +221,7 @@ const AnalyzeDDi = () => {
             Upload .txt file
           </button>
           <span className="text-gray-500">No file selected</span>
-        </div>
+        </div> */}
         <div className="w-full flex justify-end ">
           <button
             className=" flex items-center gap-2 justify-center px-6 py-2 cursor-pointer  bg-[#1e40af] text-white rounded-md duration-300 hover:bg-[#1e40afd0] "
