@@ -146,6 +146,10 @@ const AnalyzeDDi = () => {
 
   ]);
 
+    const clearResults=()=>{
+    setResults([])
+    setExtractedDrugs([])
+  }
   const [isLoading, setIsLoading] = useState(false);
   const extract_sentence_ddis = useMutation({
     mutationFn: async (data: string) => {
@@ -189,6 +193,8 @@ const AnalyzeDDi = () => {
     if (inputText) {
       extract_sentence_ddis.mutate(inputText);
       extract_sentence_drugs.mutate(inputText)
+      setResults([])
+      setExtractedDrugs([])
     }
   };
 
@@ -233,7 +239,7 @@ const AnalyzeDDi = () => {
           </button>
         </div>
       </div>
-      <ResultsTable ddi_interactions={results} isLoading={isLoading} extractedDrugs={extractedDrugs}  />
+      <ResultsTable clearResults={clearResults} ddi_interactions={results} isLoading={isLoading} extractedDrugs={extractedDrugs}  />
     </main>
   );
 };

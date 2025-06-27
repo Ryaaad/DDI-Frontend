@@ -7,9 +7,10 @@ interface ResultsTableProps {
   ddi_interactions: DDI_Extraction_result_I[];
   isLoading: boolean;
   extractedDrugs:string[]
+  clearResults:()=>void
 }
 
-const ResultsTable: FC<ResultsTableProps> = ({ ddi_interactions, isLoading,extractedDrugs }) => {
+const ResultsTable: FC<ResultsTableProps> = ({ clearResults,ddi_interactions, isLoading,extractedDrugs }) => {
   const [selectedView, setSelectedView] = useState<"interactions" | "drugs">("interactions")
   console.log("extractedDrugs", extractedDrugs);
   console.log("isLoading", isLoading);
@@ -19,7 +20,7 @@ const ResultsTable: FC<ResultsTableProps> = ({ ddi_interactions, isLoading,extra
     <div className="bg-white p-6 rounded-lg shadow-md">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-gray-700"> Results </h3>
-        <button className="text-sm text-black flex items-center cursor-pointer border border-solid border-gray-300 font-medium rounded-lg p-2 px-3 gap-2 ">
+        <button onClick={clearResults} className="text-sm text-black flex items-center cursor-pointer border border-solid border-gray-300 font-medium rounded-lg p-2 px-3 gap-2 ">
           <FaEraser />
           Clear
         </button>
