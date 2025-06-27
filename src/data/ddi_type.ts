@@ -9,7 +9,7 @@ export const DDI_TYPES = [
     name: "Mechanism",
     describtion:
       "Describes how drugs affect each other's biochemical processes or pharmacokinetics.",
-    bg: "bg-blue-600",
+    bg: "bg-custom-purple",
   },
   {
     name: "Effect",

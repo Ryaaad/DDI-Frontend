@@ -76,7 +76,7 @@ export const DDITypeExamples = () => {
           <button
             className={`hover:cursor-pointer  pb-2 ${
               type === ddi_type
-                ? "text-blue-600 font-semibold border-b-2 border-blue-600"
+                ? "text-custom-purple font-semibold border-b-2 border-custom-purple"
                 : "text-gray-600"
             } `}
             key={ddi_type}

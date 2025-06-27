@@ -55,7 +55,7 @@ const DatasetsPage = () => {
             description="DDI2013 Extraction"
             icon={
               <FaDatabase
-                fill="#155dfc"
+                fill="#4B5EAA"
                 strokeWidth={1}
                 className="text-white"
               />
@@ -65,13 +65,13 @@ const DatasetsPage = () => {
           <ContentBox
             description=" 784 documents, 5,021 sentences, 18,502 drug entities, 25,600 pais"
             icon={
-              <FileText fill="#155dfc" strokeWidth={1} className="text-white" />
+              <FileText fill="#4B5EAA" strokeWidth={1} className="text-white" />
             }
             title="Size"
           />
           <ContentBox
             description="SemEval 2013 Task 9.2: Drug-Drug Interaction Extraction"
-            icon={<PiLinkBold fill="#155dfc" className="text-white" />}
+            icon={<PiLinkBold fill="#4B5EAA" className="text-white" />}
             title="Source"
           />
         </section>
@@ -122,19 +122,19 @@ const DatasetsPage = () => {
             <h3 className="font-semibold text-gray-700 mb-2">Key Elements</h3>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <FaCheckCircle color="#155dfc" />
+                <FaCheckCircle color="#4B5EAA" />
                 Drug entities with attributes like ID, name, and type
               </div>
               <div className="flex items-center gap-2">
-                <FaCheckCircle color="#155dfc" />
+                <FaCheckCircle color="#4B5EAA" />
                 Sentence boundaries containing drug mentions
               </div>
               <div className="flex items-center gap-2">
-                <FaCheckCircle color="#155dfc" />
+                <FaCheckCircle color="#4B5EAA" />
                 Interaction pairs linked by drug entity IDs
               </div>
               <div className="flex items-center gap-2">
-                <FaCheckCircle color="#155dfc" />
+                <FaCheckCircle color="#4B5EAA" />
                 Interaction types labeled for each valid interaction
               </div>
             </div>
@@ -153,13 +153,13 @@ const DatasetsPage = () => {
           <div className="rounded-lg w-full bg-blue-50 p-4 ">
             <div className="space-y-3">
               <div className="flex item-center gap-2">
-                <Folder fill="#155dfc" strokeWidth={0} size={20} />
+                <Folder fill="#4B5EAA" strokeWidth={0} size={20} />
                 <p className="font-medium">Documents (XML files)</p>
               </div>
               <div className="ml-8 space-y-3">
                 <div className="flex item-center gap-2">
                   <FileText
-                    fill="#155dfc"
+                    fill="#4B5EAA"
                     strokeWidth={1}
                     className="text-white"
                     size={20}
@@ -168,12 +168,12 @@ const DatasetsPage = () => {
                 </div>
                 <div className="ml-8 space-y-3">
                   <div className="flex item-center gap-2">
-                    <FaPills size={20} color="#155dfc" />
+                    <FaPills size={20} color="#4B5EAA" />
                     <p className="font-medium">Drug Entities</p>
                   </div>
                   <div className="flex item-center gap-2">
                     <LuGitCompareArrows
-                      fill="#155dfc"
+                      fill="#4B5EAA"
                       strokeWidth={0}
                       size={20}
                     />

@@ -9,8 +9,7 @@ import { GiMedicines } from "react-icons/gi";
 import { LuGitCompareArrows } from "react-icons/lu";
 import { Bar } from "react-chartjs-2";
 import { DDI_PERFORMANCES_HIST } from "../data/ddi_historgram";
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 
 const DDIInfoPage = () => {
   const options = {
@@ -43,7 +42,7 @@ const DDIInfoPage = () => {
       description: "Interaction type",
     },
   ];
-  const dner_percentage=0.914
+  const dner_percentage = 0.914;
   return (
     <main>
       <h2 className="text-2xl font-semibold text-gray-800 ">About the Model</h2>
@@ -83,10 +82,6 @@ const DDIInfoPage = () => {
             <li className="flex items-center gap-2 ">
               <Check className="text-custom-purple  self-end" size={18} />
               Enhancing drug development and pharmacovigilance processes
-            </li>
-            <li className="flex items-center gap-2 ">
-              <Check className="text-custom-purple  self-end" size={18} />
-              Updating knowledge bases with newly discovered interactions
             </li>
             <li className="flex items-center gap-2 ">
               <Check className="text-custom-purple  self-end" size={18} />
@@ -137,28 +132,30 @@ const DDIInfoPage = () => {
               <h1 className="font-semibold text-xl">Drug NER Model</h1>
               <p className="">Drug Named Entity Recognition </p>
             </div>
-
           </div>
 
-                      <div style={{ width: 180, height: 180 }} className="mx-auto my-15 " >
-  <CircularProgressbarWithChildren  value={dner_percentage*100} >
-<div className="font-bold text-4xl text-custom-purple " >  {dner_percentage}  </div>
-<div className="text-sm" >  F1 score </div>
-</CircularProgressbarWithChildren>
-</div>
+          <div style={{ width: 180, height: 180 }} className="mx-auto my-15 ">
+            <CircularProgressbarWithChildren value={dner_percentage * 100}>
+              <div className="font-bold text-4xl text-custom-purple ">
+                {" "}
+                {dner_percentage}{" "}
+              </div>
+              <div className="text-sm"> F1 score </div>
+            </CircularProgressbarWithChildren>
+          </div>
 
-  <div className="flex items-center justify-center w-full ">
-          <div className="flex space-x-4 w-full">
-            <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
-              <div className="text-2xl font-bold">88.32%</div>
-              <div className="text-gray-600">Precision</div>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
-              <div className="text-2xl font-bold">94.98%</div>
-              <div className="text-gray-600">Recall</div>
+          <div className="flex items-center justify-center w-full ">
+            <div className="flex space-x-4 w-full">
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
+                <div className="text-2xl font-bold">88.32%</div>
+                <div className="text-gray-600">Precision</div>
+              </div>
+              <div className="bg-gray-100 p-4 rounded-lg shadow-md text-center w-full">
+                <div className="text-2xl font-bold">94.98%</div>
+                <div className="text-gray-600">Recall</div>
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <div className="bg-white p-6 py-8 rounded-xl h-[580px] w-full shadow-md">
           <div className="flex gap-4 items-center">
@@ -188,7 +185,8 @@ const DDIInfoPage = () => {
 
       <div className="text-center w-full flex  justify-center">
         <a
-          href="#"
+          href="/MEMOIRE_Master.pdf"
+          download
           className="hover:bg-blue-800 bg-custom-purple  duration-500 flex font-medium items-center gap-2 justify-center w-max text-white px-4 py-3 rounded-lg"
         >
           <BsFileEarmarkTextFill className="text-white" />
