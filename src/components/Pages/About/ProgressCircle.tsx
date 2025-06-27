@@ -6,10 +6,12 @@ const ProgressCircle: FC<{ value: number }> = ({ value }) => {
 
   return (
     <div
-      className="relative w-18 h-18 flex items-center justify-center rounded-full border-6 border-blue-600 border-tr-red "
+      className="relative w-18 h-18 flex items-center justify-center rounded-full border-6 border-custom-purple border-tr-red "
       // style={{ borderTopRight: "2px solid red" }}
     >
-      <span className="absolute text-blue-600 text-xl font-bold">0.815</span>
+      <span className="absolute text-custom-purple text-xl font-bold">
+        0.815
+      </span>
     </div>
   );
 };

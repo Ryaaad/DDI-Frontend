@@ -45,7 +45,7 @@ const Sidebar = () => {
             to={element.path}
             className={`flex items-center space-x-2 p-2 ${
               location.pathname === element.path
-                ? "text-blue-600 bg-blue-50"
+                ? "text-custom-purple bg-blue-50"
                 : "text-gray-600"
             }  rounded-md`}
           >
